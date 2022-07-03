@@ -1,14 +1,35 @@
-<table>
-  <tr *ngFor="let show of shows">
-    <td>
-      <img src="{{ show.show.image.medium }}" alt="{{ show.show.name }}" />
-    </td>
-    <td id="tvdata">
-      <h2>{{ show.show.name }}</h2>
-      <p>{{ show.show.url }}</p>
-      <p>{{ show.show.type }}</p>
-      <p>{{ show.show.language }}</p>
-      <p>{{ show.show.status }}</p>
-    </td>
-  </tr>
-</table>
+<div class="center">
+  <mat-table [dataSource]="shows" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name.</mat-header-cell>
+      <mat-cell *matCellDef="let show">{{ show.show.name }}</mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
+      <mat-cell *matCellDef="let show">
+        <img src="{{ show.show.image.medium }}" alt="{{ show.show.name }}" />
+      </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="url">
+      <mat-header-cell *matHeaderCellDef>URL</mat-header-cell>
+      <mat-cell *matCellDef="let show">{{ show.show.url }}</mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+      <mat-cell *matCellDef="let show">{{ show.show.type }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>

@@ -6,3 +6,16 @@ img {
 table,tr,td {
   vertical-align: top;
 }
+
+.example-card {
+  max-width: 400px;
+}
+
+body {
+  text-align: center;
+}
+.center {
+  margin: auto;
+  width: 95%;
+  padding: 10px;
+}

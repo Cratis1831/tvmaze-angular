@@ -9,6 +9,7 @@ import { TvmazeService } from '../tvmaze.service';
 })
 export class HomeComponent implements OnInit {
   shows: TVMaze[] = [];
+  displayedColumns: string[] = ['name', 'image', 'url', 'type'];
   constructor(private tvMazeService: TvmazeService) {}
 
   ngOnInit(): void {
