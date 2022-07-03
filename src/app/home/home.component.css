@@ -1,0 +1,8 @@
+img {
+  width: 150px;
+  height: auto;
+}
+
+table,tr,td {
+  vertical-align: top;
+}
